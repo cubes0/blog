@@ -1,16 +1,20 @@
+
 # nginx使用HTTP3(QUIC)
 
- - 简介
+- 简介
 
  [维基百科中关于quic的定义](https://zh.m.wikipedia.org/zh-hans/QUIC)
 
 ## 1. 安装依赖
+
 以Ubuntu64位为例,
-```bash 
+
+```bash
 sudo apt update && sudo apt install build-essential mercurial psmisc lsb-release cmake golang libunwind-dev git libpcre3-dev zlib1g-dev
 ```
 
 ## 2.编译boringssl
+
 由于OpenSSL官方暂不支持nginx-quic,需要使用Google基于OpenSSL开发的BoringSSL分支来提供支持,[源码地址](https://github.com/google/boringssl)
 
 ```bash
@@ -26,7 +30,9 @@ go env -w GOPROXY="https://goproxy.cn,direct"
 ```
 
 ## 3.编译nginx
+
 nginx-quic项目托管在[源码地址](https://hg.nginx.org/nginx-quic)
+
 ```bash
 sudo apt install mercurial
 hg clone -b quic https://hg.nginx.org/nginx-quic
@@ -37,10 +43,13 @@ hg clone -b quic https://hg.nginx.org/nginx-quic
 make
 make install
 ```
+
 nginx-quic的相关目录在/usr/local/nginx-quic下
 
 ## 4.配置nginx.conf并测试
+
 使用文本编辑软件编辑 /usr/local/nginx-quic/conf/nginx.conf
+
 ```bash
 sudo vim /usr/local/nginx-quic/conf/nginx.conf
 #将之前的server{}改为下面的,如果有多个网站,reuseport只能出现一个网站中
@@ -77,7 +86,9 @@ sudo vim /usr/local/nginx-quic/conf/nginx.conf
 #退出vim,启动nginx
 sudo ./usr/local/nginx-quic/sbin/nginx
 ```
+
 ## 5.测试是否开启http3
+
 - 使用[http3check](https://http3check.net/)来进行测试,下面是我的网站测试截图
 
 ![](https://minio-upload.cybeor.com:443/images/202208032139627.png)
@@ -86,7 +97,4 @@ sudo ./usr/local/nginx-quic/sbin/nginx
 
 ![](https://minio-upload.cybeor.com:443/images/202208032142307.png)
 
-
-
-## 😀附上编译完成的nginx以及相关配置[下载链接](https://pan.cybeor.com/%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98/nginx-quic.7z)
-
+## 😀附上编译完成的nginx以及相关配置的[下载链接](https://pan.cybeor.com/%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98/nginx-quic.7z)

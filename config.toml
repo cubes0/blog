@@ -7,23 +7,23 @@ theme = "LoveIt"
 title = "cubes's blog"
 
 # 网站语言, 仅在这里 CN 大写 ["en", "zh-CN", "fr", "pl", ...]
-languageCode = "zh-CN"
+languageCode = "en"
 # 语言名称 ["English", "简体中文", "Français", "Polski", ...]
 languageName = "简体中文"
 # 是否包括中日韩文字
-hasCJKLanguage = true
+hasCJKLanguage = false
 
 # 默认每页列表显示的文章数目
 paginate = 10
 # 谷歌分析代号 [UA-XXXXXXXX-X]
-googleAnalytics = "G-P9EZBW76SY"
+googleAnalytics = ""
 # 版权描述，仅仅用于 SEO
 copyright = "cubes's blog"
 
 # 是否使用 robots.txt
-enableRobotsTXT = true
+enableRobotsTXT = false
 # 是否使用 git 信息
-enableGitInfo = true
+enableGitInfo = false
 # 是否使用 emoji 代码
 enableEmoji = true
 
@@ -65,6 +65,14 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     name = "分类"
     url = "/categories/"
     title = ""
+  [[menu.main]]
+    weight = 4
+    identifier = "friends"
+    pre = ""
+    post = ""
+    name = "友链"
+    url = "/friends/"
+    title = ""
 
 [params]
   # 网站默认主题样式 ["auto", "light", "dark"]
@@ -94,9 +102,9 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       # LOGO 的 URL
       logo = ""
       # 标题名称
-      name = ""
+      name = "cubes"
       # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
-      pre = ""
+      pre = "" #TODO
       # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
       post = ""
       #  是否为标题显示打字机动画
@@ -123,7 +131,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   #  Section (所有文章) 页面配置
   [params.section]
     # section 页面每页显示文章数量
-    paginate = 20
+    paginate = 10
     # 日期格式 (月和日)
     dateFormat = "01-02"
     # RSS 文章数目
@@ -187,7 +195,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       # 主页显示头像的 URL
       avatarURL = "https://minio-upload.cybeor.com/images/202208102000533.png"
       #  主页显示的网站标题 (支持 HTML 格式)
-      title = "cubes's blog"
+      title = ""
       # 主页显示的网站副标题 (允许 HTML 格式)
       subtitle = "The Quieter You Become, The More You Are Able To Hear"
       # 是否为副标题显示打字机动画
@@ -209,10 +217,10 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   [params.social]
     GitHub = "cubes0"
     Linkedin = ""
-    Twitter = "xxxx"
-    Instagram = "xxxx"
+    Twitter = "cubes24257868"
+    Instagram = ""
     Facebook = ""
-    Telegram = "xxxx"
+    Telegram = "cubes0"
     Medium = ""
     Gitlab = ""
     Youtubelegacy = ""
@@ -268,7 +276,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     Gitea = ""
     XMPP = ""
     Matrix = ""
-    Bilibili = ""
+    Bilibili = "230309161"
     Discord = ""
     DiscordInvite = ""
     Lichess = ""
@@ -300,7 +308,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     #  是否使用 fontawesome 扩展语法
     fontawesome = true
     # 是否在文章页面显示原始 Markdown 文档链接
-    linkToMarkdown = true
+    linkToMarkdown = false
     #  是否在 RSS 中显示全文内容
     rssFullText = false
     #  目录配置
@@ -308,7 +316,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       # 是否使用目录
       enable = true
       #  是否保持使用文章前面的静态目录
-      keepStatic = true
+      keepStatic = false
       # 是否使侧边目录自动折叠展开
       auto = true
     #  代码配置
@@ -348,9 +356,9 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       fullscreen = true
     #  文章页面的分享信息设置
     [params.page.share]
-      enable = true
-      Twitter = true
-      Facebook = true
+      enable = false
+      Twitter = false
+      Facebook = false
       Linkedin = false
       Whatsapp = false
       Pinterest = false
@@ -364,7 +372,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       Instapaper = false
       Pocket = false
       Flipboard = false
-      Weibo = true
+      Weibo = false
       Blogger = false
       Baidu = false
       Odnoklassniki = false
@@ -374,7 +382,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       Mix = false
     #  评论系统设置
     [params.page.comment]
-      enable = false
+      enable = true
       # Disqus 评论系统设置
       [params.page.comment.disqus]
         # 
@@ -384,7 +392,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       # Gitalk 评论系统设置
       [params.page.comment.gitalk]
         # 
-        enable = false
+        enable = true
         owner = ""
         repo = ""
         clientId = ""
@@ -501,7 +509,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   #  网站 SEO 配置
   [params.seo]
     # 图片 URL
-    image = ""
+    image = "https://minio-upload.cybeor.com/images/202208102000533.png"
     # 缩略图 URL
     thumbnailUrl = ""
 
@@ -510,9 +518,9 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     enable = true
     # Google Analytics
     [params.analytics.google]
-      id = ""
+      id = "G-P9EZBW76SY"
       # 是否匿名化用户 IP
-      anonymizeIP = true
+      anonymizeIP = false
     # Fathom Analytics
     [params.analytics.fathom]
       id = ""
@@ -527,7 +535,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
   #  Cookie 许可配置
   [params.cookieconsent]
-    enable = true
+    enable = false
     # 用于 Cookie 许可横幅的文本字符串
     [params.cookieconsent.content]
       message = ""
@@ -581,7 +589,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
 # 网站地图配置
 [sitemap]
-  changefreq = "weekly"
+  changefreq = ""
   filename = "sitemap.xml"
   priority = 0.5
 
@@ -596,7 +604,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   [privacy.googleAnalytics]
     # ...
   [privacy.twitter]
-    enableDNT = true
+    enableDNT = false
   [privacy.youtube]
     privacyEnhanced = true
 
@@ -613,7 +621,6 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
 # 用于 Hugo 输出文档的设置
 [outputs]
-  # 
   home = ["HTML", "RSS", "JSON"]
   page = ["HTML", "MarkDown"]
   section = ["HTML", "RSS"]
