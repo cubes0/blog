@@ -57,16 +57,16 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     name = "标签"
     url = "/tags/"
     title = ""
+  # [[menu.main]]
+  #   weight = 3
+  #   identifier = "categories"
+  #   pre = ""
+  #   post = ""
+  #   name = "分类"
+  #   url = "/categories/"
+  #   title = ""
   [[menu.main]]
     weight = 3
-    identifier = "categories"
-    pre = ""
-    post = ""
-    name = "分类"
-    url = "/categories/"
-    title = ""
-  [[menu.main]]
-    weight = 4
     identifier = "friends"
     pre = ""
     post = ""
@@ -114,7 +114,8 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   [params.footer]
     enable = true
     #  自定义内容 (支持 HTML 格式)
-    custom = ''
+    # <style>body{background-image:url(https://minio-upload.cybeor.com/images/202208112123419.jpg);background-size: 100%}</style>
+    custom = '<canvas class="fireworks" style="position:fixed;left:0;top:0;z-index:99999999;pointer-events:none;"></canvas><script type="text/javascript" src="./djtx.js">'
     #  是否显示 Hugo 和主题信息
     hugo = true
     #  是否显示版权信息

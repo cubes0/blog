@@ -1,9 +1,9 @@
-
-# nginx使用HTTP3(QUIC)
-
-- 简介
-
- [维基百科中关于quic的定义](https://zh.m.wikipedia.org/zh-hans/QUIC)
+---
+title: "Nginx使用HTTP3(QUIC)"
+date: 2022-08-07
+draft: false
+---
+简介:[维基百科中关于quic的定义](https://zh.m.wikipedia.org/zh-hans/QUIC)
 
 ## 1. 安装依赖
 
