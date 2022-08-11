@@ -115,8 +115,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     enable = true
     #  自定义内容 (支持 HTML 格式)
     # <style>body{background-image:url(https://minio-upload.cybeor.com/images/202208112123419.jpg);background-size: 100%}</style>
-    custom = '<canvas class="fireworks" style="position:fixed;left:0;top:0;z-index:99999999;pointer-events:none;"></canvas><script type="text/javascript" src="./djtx.js">'
-    #  是否显示 Hugo 和主题信息
+    custom = '<canvas class="fireworks" style="position:fixed;left:0;top:0;z-index:99999999;pointer-events:none;"></canvas><script type="text/javascript" src="https://pan.cybeor.com/d/backup/djtx.js"></script>'
     hugo = true
     #  是否显示版权信息
     copyright = true
@@ -383,7 +382,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       Mix = false
     #  评论系统设置
     [params.page.comment]
-      enable = true
+      enable = false
       # Disqus 评论系统设置
       [params.page.comment.disqus]
         # 
@@ -393,7 +392,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       # Gitalk 评论系统设置
       [params.page.comment.gitalk]
         # 
-        enable = true
+        enable = false
         owner = ""
         repo = ""
         clientId = ""
