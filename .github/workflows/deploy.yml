@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [ "master" ]
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 1.checkou master
+      - uses: actions/checkout@v3
+      
+      - name: 2.copy favicon.ico to pubic 
+        run: cp ./favicon.ico ./public 
+        
+      - name: 3.tar public folder
+        run: tar-zcvf  public.tar.gz public/
+        
+      - name: 4.sync to server 
+        uses: AEnterprise/rsync-deploy@v1.0
+        env:
+          DEPLOY_KEY: ${{ secrets.PASSWORD }}
+          ARGS: -avz --delete --exclude='*.pyc'
+          SERVER_PORT: '22'
+          FOLDER: ./
+          SERVER_IP: ${{ secrets.ALIYUN_IP }}
+          USERNAME: ${{ secrets.USER_NAME }} # 引用配置，服务器登录名
+          SERVER_DESTINATION: /web/static/www.cybeor.com/
+                
+      - name: 5.ssh and deploy 
+        uses: appleboy/ssh-action@master
+        with:
+         host: ${{ secrets.ALIYUN_IP }}
+         username: ${{ secrets.USER_NAME }}
+         key: ${{ secrets.PASSWORD }}
+         port: '22'
+         script: |
+          cd /web/static/www.cybeor.com/
+          rm -rf *
+          tar zxvf public.tar.gz  --strip-components 1
+          rm public.tar.gz
