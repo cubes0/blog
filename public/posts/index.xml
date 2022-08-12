@@ -1,0 +1,20 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>All Posts - cubes&#39;s blog</title>
+        <link>https://www.cybeor.com/posts/</link>
+        <description>All Posts | cubes&#39;s blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>0@cybeor.com (cubes)</managingEditor>
+            <webMaster>0@cybeor.com (cubes)</webMaster><copyright>cubes&#39;s blog</copyright><lastBuildDate>Sun, 07 Aug 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.cybeor.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Nginx使用HTTP3(QUIC)</title>
+    <link>https://www.cybeor.com/nginx%E4%BD%BF%E7%94%A8http3quic/</link>
+    <pubDate>Sun, 07 Aug 2022 00:00:00 &#43;0000</pubDate>
+    <author>cubes</author>
+    <guid>https://www.cybeor.com/nginx%E4%BD%BF%E7%94%A8http3quic/</guid>
+    <description><![CDATA[简介:维基百科中关于quic的定义
+1. 安装依赖 以Ubuntu64位为例,
+1 sudo apt update &amp;&amp; sudo apt install build-essential mercurial psmisc lsb-release cmake golang libunwind-dev git libpcre3-dev zlib1g-dev 2.编译boringssl 由于OpenSSL官方暂不支持nginx-quic,需要使用Google基于OpenSSL开发的BoringSSL分支来提供支持,源码地址
+1 2 3 4 5 6 7 8 9 cd ~ git clone https://github.com/google/boringssl cd boringssl/ mkdir build &amp;&amp; cd build cmake ../ make #期间可能会出现golang下载包超时的情况,需要设置goproxy #执行 go env -w GOPROXY=&#34;https://goproxy.cn,direct&#34; 3.编译nginx nginx-quic项目托管在源码地址
+1 2 3 4 5 6 7 8 sudo apt install mercurial hg clone -b quic https://hg.]]></description>
+</item>
+</channel>
+</rss>
