@@ -19,7 +19,8 @@ jobs:
         run: tar -zcvf public.tar.gz public
         
       - name: 4.sync to server 
-        run: sftp ${{ secrets.ALIYUN_IP }}@${{ secrets.USER_NAME }}
+        run: sftp ${{ secrets.ALIYUN_IP }}@${{ secrets.USER_NAME }}\n
+
              ${{ secrets.PASS_WORD }}
          
       - name: 5.ssh and deploy 
