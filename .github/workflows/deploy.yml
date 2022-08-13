@@ -19,7 +19,15 @@ jobs:
         run: tar -zcvf public.tar.gz public
         
       - name: 4.sync to server 
-        run: yes|sftp ${{ secrets.ALIYUN_IP }}@${{ secrets.USER_NAME }}&& yes|${{ secrets.PASS_WORD }}
+        uses: Creepios/sftp-action@v1.0.4
+        with:
+          host: ${{ secrets.HOST }}
+          port: 22
+          username: ${{ secrets.USER_NAME }}
+          password: ${{ secrets.PASS_WORD }}
+          additionalPaths: public.tar.gz
+          localPath: ./
+          remotePath: /web/static/www.cybeor.com/
          
       - name: 5.ssh and deploy 
         uses: appleboy/ssh-action@master
