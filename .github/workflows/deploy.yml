@@ -33,8 +33,7 @@ jobs:
         with:
          host: ${{ secrets.HOST }}
          username: ${{ secrets.USER_NAME }}
-         key: ${{ secrets.PRIVATE_KEY }}
-         port: 22
+         password: ${{ secrets.PASS_WORD }}
          script: |
           cd /web/static/www.cybeor.com/
           rm -rf *
