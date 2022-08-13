@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v3
         
       - name: 2.checkou master,copy favicon.ico to pubic,tar public folder
-        run: cp ./favicon.ico ./public&&tar-zcvf  public.tar.gz public
+        run: cp ./favicon.ico ./public&&tar -zcvf  public.tar.gz public
         
       - name: 4.sync to server 
         uses: AEnterprise/rsync-deploy@v1.0
