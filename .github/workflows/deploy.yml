@@ -9,8 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: 1.checkou master,copy favicon.ico to pubic,tar public folder
+      - name: 1.checkou master
       - uses: actions/checkout@v3
+        
+      - name: 2.checkou master,copy favicon.ico to pubic,tar public folder
         run: cp ./favicon.ico ./public&&tar-zcvf  public.tar.gz public
         
       - name: 4.sync to server 
