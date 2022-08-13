@@ -12,8 +12,11 @@ jobs:
       - name: 1.checkou master
         uses: actions/checkout@v3
         
-      - name: 2.checkou master,copy favicon.ico to pubic,tar public folder
-        run: cp ./favicon.ico ./public&&tar -zcvf  public.tar.gz public
+      - name: 2.copy favicon.ico 
+        run: cp ./favicon.ico ./public
+        
+      - name: 3.tar public folder
+        run: tar -zcvf public.tar.gz public
         
       - name: 4.sync to server 
         uses: AEnterprise/rsync-deploy@v1.0
@@ -21,9 +24,9 @@ jobs:
           DEPLOY_KEY: ${{ secrets.PASSWORD }}
           ARGS: -avz --delete --exclude='*.pyc'
           SERVER_PORT: '22'
-          FOLDER: ./
+          FOLDER: ./public.tar.gz
           SERVER_IP: ${{ secrets.ALIYUN_IP }}
-          USERNAME: ${{ secrets.USER_NAME }} # 引用配置，服务器登录名
+          USERNAME: ${{ secrets.USER_NAME }}
           SERVER_DESTINATION: /web/static/www.cybeor.com/
                 
       - name: 5.ssh and deploy 
@@ -36,5 +39,5 @@ jobs:
          script: |
           cd /web/static/www.cybeor.com/
           rm -rf *
-          tar zxvf public.tar.gz  --strip-components 1
+          tar -zxvf public.tar.gz  --strip-components 1
           rm public.tar.gz
