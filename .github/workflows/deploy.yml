@@ -36,7 +36,7 @@ jobs:
          password: ${{ secrets.PASS_WORD }}
          script: |
           cd /web/static/www.cybeor.com/
-          rm -rf *
+          rm -rf !(public.tar.gz)
           tar -zxvf public.tar.gz  --strip-components 1
           rm public.tar.gz
           echo deploy done...
