@@ -5,7 +5,7 @@ draft: false
 ---
 简介:[维基百科中关于quic的定义](https://zh.m.wikipedia.org/zh-hans/QUIC)
 
-# 1. 安装依赖
+## 1. 安装依赖
 
 以Ubuntu64位为例,
 
@@ -13,7 +13,7 @@ draft: false
 sudo apt update && sudo apt install build-essential mercurial psmisc lsb-release cmake golang libunwind-dev git libpcre3-dev zlib1g-dev
 ```
 
-# 2.编译boringssl
+## 2.编译boringssl
 
 由于OpenSSL官方暂不支持nginx-quic,需要使用Google基于OpenSSL开发的BoringSSL分支来提供支持,[源码地址](https://github.com/google/boringssl)
 
@@ -29,7 +29,7 @@ make
 go env -w GOPROXY="https://goproxy.cn,direct"
 ```
 
-# 3.编译nginx
+## 3.编译nginx
 
 nginx-quic项目托管在[源码地址](https://hg.nginx.org/nginx-quic)
 
@@ -46,7 +46,7 @@ make install
 
 nginx-quic的相关目录在/usr/local/nginx-quic下
 
-# 4.配置nginx.conf并测试
+## 4.配置nginx.conf并测试
 
 使用文本编辑软件编辑 /usr/local/nginx-quic/conf/nginx.conf
 
@@ -61,7 +61,7 @@ sudo vim /usr/local/nginx-quic/conf/nginx.conf
                 index index.html index.htm;
                 root /web/static/example.com;
 
-                charset koi8-r;
+                charset utf-8;
 
                 #SSL-START
                 ssl_certificate /web/cert/example.pem;
@@ -87,7 +87,7 @@ sudo vim /usr/local/nginx-quic/conf/nginx.conf
 sudo ./usr/local/nginx-quic/sbin/nginx
 ```
 
-# 5.测试是否开启http3
+## 5.测试是否开启http3
 
 - 使用[http3check](https://http3check.net/)来进行测试,下面是我的网站测试截图
 
@@ -97,4 +97,4 @@ sudo ./usr/local/nginx-quic/sbin/nginx
 
 ![](https://minio-upload.cybeor.com:443/images/202208032142307.png)
 
-# 附上编译完成的nginx以及相关配置的[下载链接😀](https://pan.cybeor.com/%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98/nginx-quic.7z)
+## 附上编译完成的nginx以及相关配置的[下载链接😀](https://pan.cybeor.com/%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98/nginx-quic.7z)
