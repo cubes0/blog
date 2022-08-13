@@ -25,8 +25,7 @@ jobs:
           port: 22
           username: ${{ secrets.USER_NAME }}
           password: ${{ secrets.PASS_WORD }}
-          additionalPaths: public.tar.gz
-          localPath: ./
+          localPath: ./public.tar.gz
           remotePath: /web/static/www.cybeor.com/
          
       - name: 5.ssh and deploy 
@@ -35,7 +34,7 @@ jobs:
          host: ${{ secrets.HOST }}
          username: ${{ secrets.USER_NAME }}
          key: ${{ secrets.PASS_WORD }}
-         port: '22'
+         port: 22
          script: |
           cd /web/static/www.cybeor.com/
           rm -rf *
