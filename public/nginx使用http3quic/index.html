@@ -119,9 +119,18 @@
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-安装依赖">1. 安装依赖</a></li>
+    <li><a href="#2编译boringssl">2.编译boringssl</a></li>
+    <li><a href="#3编译nginx">3.编译nginx</a></li>
+    <li><a href="#4配置nginxconf并测试">4.配置nginx.conf并测试</a></li>
+    <li><a href="#5测试是否开启http3">5.测试是否开启http3</a></li>
+    <li><a href="#附上编译完成的nginx以及相关配置的下载链接httpspancybeorcome998bfe9878ce4ba91e79b98nginx-quic7z">附上编译完成的nginx以及相关配置的<a href="https://pan.cybeor.com/%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98/nginx-quic.7z">下载链接😀</a></a></li>
+  </ul>
+</nav></div>
             </div><div class="content" id="content"><p>简介:<a href="https://zh.m.wikipedia.org/zh-hans/QUIC" target="_blank" rel="noopener noreffer ">维基百科中关于quic的定义</a></p>
-<h1 id="1-安装依赖">1. 安装依赖</h1>
+<h2 id="1-安装依赖">1. 安装依赖</h2>
 <p>以Ubuntu64位为例,</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -131,7 +140,7 @@
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt update <span class="o">&amp;&amp;</span> sudo apt install build-essential mercurial psmisc lsb-release cmake golang libunwind-dev git libpcre3-dev zlib1g-dev
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h1 id="2编译boringssl">2.编译boringssl</h1>
+</div><h2 id="2编译boringssl">2.编译boringssl</h2>
 <p>由于OpenSSL官方暂不支持nginx-quic,需要使用Google基于OpenSSL开发的BoringSSL分支来提供支持,<a href="https://github.com/google/boringssl" target="_blank" rel="noopener noreffer ">源码地址</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -157,7 +166,7 @@
 </span></span><span class="line"><span class="cl">go env -w <span class="nv">GOPROXY</span><span class="o">=</span><span class="s2">&#34;https://goproxy.cn,direct&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h1 id="3编译nginx">3.编译nginx</h1>
+</div><h2 id="3编译nginx">3.编译nginx</h2>
 <p>nginx-quic项目托管在<a href="https://hg.nginx.org/nginx-quic" target="_blank" rel="noopener noreffer ">源码地址</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -182,7 +191,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>nginx-quic的相关目录在/usr/local/nginx-quic下</p>
-<h1 id="4配置nginxconf并测试">4.配置nginx.conf并测试</h1>
+<h2 id="4配置nginxconf并测试">4.配置nginx.conf并测试</h2>
 <p>使用文本编辑软件编辑 /usr/local/nginx-quic/conf/nginx.conf</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -232,7 +241,7 @@
 </span></span><span class="line"><span class="cl">                index index.html index.htm<span class="p">;</span>
 </span></span><span class="line"><span class="cl">                root /web/static/example.com<span class="p">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">                charset koi8-r<span class="p">;</span>
+</span></span><span class="line"><span class="cl">                charset utf-8<span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">                <span class="c1">#SSL-START</span>
 </span></span><span class="line"><span class="cl">                ssl_certificate /web/cert/example.pem<span class="p">;</span>
@@ -258,7 +267,7 @@
 </span></span><span class="line"><span class="cl">sudo ./usr/local/nginx-quic/sbin/nginx
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h1 id="5测试是否开启http3">5.测试是否开启http3</h1>
+</div><h2 id="5测试是否开启http3">5.测试是否开启http3</h2>
 <ul>
 <li>使用<a href="https://http3check.net/" target="_blank" rel="noopener noreffer ">http3check</a>来进行测试,下面是我的网站测试截图</li>
 </ul>
@@ -281,7 +290,7 @@
         data-sizes="auto"
         alt="https://minio-upload.cybeor.com:443/images/202208032142307.png"
         title="https://minio-upload.cybeor.com:443/images/202208032142307.png" /></p>
-<h1 id="附上编译完成的nginx以及相关配置的下载链接httpspancybeorcome998bfe9878ce4ba91e79b98nginx-quic7z">附上编译完成的nginx以及相关配置的<a href="https://pan.cybeor.com/%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98/nginx-quic.7z" target="_blank" rel="noopener noreffer ">下载链接😀</a></h1>
+<h2 id="附上编译完成的nginx以及相关配置的下载链接httpspancybeorcome998bfe9878ce4ba91e79b98nginx-quic7z">附上编译完成的nginx以及相关配置的<a href="https://pan.cybeor.com/%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98/nginx-quic.7z" target="_blank" rel="noopener noreffer ">下载链接😀</a></h2>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
