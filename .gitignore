@@ -2,5 +2,4 @@
 .idea
 .vscode
 .hugo_build.lock
-./resources
-./themes
+resources/
