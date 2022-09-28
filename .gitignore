@@ -1,0 +1,6 @@
+.gitmodules
+.idea
+.vscode
+.hugo_build.lock
+./resources
+./public
