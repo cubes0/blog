@@ -11,23 +11,14 @@ jobs:
     steps:
       - name: 1.checkou master
         uses: actions/checkout@v3
-
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: 'latest'
-          extended: true
-
-      - name: 2.Build
-        run: hugo --minify
         
-      - name: 3.copy favicon.ico 
+      - name: 2.copy favicon.ico 
         run: cp ./favicon.ico ./public
         
-      - name: 4.tar public folder
+      - name: 3.tar public folder
         run: tar -zcvf public.tar.gz public
         
-      - name: 5.sync to server 
+      - name: 4.sync to server 
         uses: Creepios/sftp-action@v1.0.4
         with:
           host: ${{ secrets.HOST }}
